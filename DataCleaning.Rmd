@@ -59,32 +59,6 @@ new <- rbind(df_m, df_f)
 write.csv(new, "/Users/wengliangchong/Desktop/RunTheData/Marathon15.csv", row.names = FALSE)
 ```
 
-Finally, I add a year column and merge all the 4 years together into one.
-
-```{r, eval=FALSE}
-#Read csv files
-df <- read.csv("/Users/wengliangchong/Desktop/RunTheData/MarathonData.csv", header = T,
-                stringsAsFactors = FALSE)
-df_new <- read.csv("/Users/wengliangchong/Desktop/RunTheData/Marathon18.csv", header = T,
-                stringsAsFactors = FALSE)
-```
-
-```{r, eval=FALSE}
-#Add Year columns
-df_new <- cbind(rep("Year", nrow(df_new)), df_new)
-df_new <- df_new[,c(2,3,4,5,1,6,7,8,9,10,11,12,13,14,15,16,17,18,19)]
-colnames(df_new)[5] <- "Year"
-```
-
-```{r, eval=FALSE}
-#Bind the two csv file into one
-new <- rbind(df, df_new)
-```
-
-```{r, eval=FALSE}
-#Export into a new csv file
-write.csv(new, "/Users/wengliangchong/Desktop/RunTheData/MarathonData.csv", row.names = FALSE)
-```
 
 
 

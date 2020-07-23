@@ -10,6 +10,7 @@ library(dplyr)
 library(ggplot2)
 library(ggridges)
 library(lubridate)
+library(scales)
 ```
 
 ```{r}
@@ -145,26 +146,30 @@ for (i in 1:nrow(df)) {
   d42k[i] <- (last2k[i] - df$mean[i])/df$mean[i]*100
 }
 ```
+
 ```{r}
-x <- data.frame("Checkpoint" = rep(c("5 km", "10 km", "15 km", "20 km", 
-                                     "25 km", "30 km", "35 km", "40 km", "42 km"),2),
-                "Diff" = c(mean(d5k[which(df$Gender == "Male")]), mean(d10k[which(df$Gender == "Male")]),
-                           mean(d15k[which(df$Gender == "Male")]), mean(d20k[which(df$Gender == "Male")]),
-                           mean(d25k[which(df$Gender == "Male")]), mean(d30k[which(df$Gender == "Male")]),
-                           mean(d35k[which(df$Gender == "Male")]), mean(d40k[which(df$Gender == "Male")]),
-                           mean(d42k[which(df$Gender == "Male")]), mean(d5k[which(df$Gender == "Female")]),
-                           mean(d10k[which(df$Gender == "Female")]), mean(d15k[which(df$Gender == "Female")]),
-                           mean(d20k[which(df$Gender == "Female")]), mean(d25k[which(df$Gender == "Female")]),
-                           mean(d30k[which(df$Gender == "Female")]), mean(d35k[which(df$Gender == "Female")]),
-                           mean(d40k[which(df$Gender == "Female")]), mean(d42k[which(df$Gender == "Female")])), 
-                "Gender" = rep(c("Male", "Female"),each=9))
+Checkpoint <- c("5 km", "10 km", "15 km", "20 km", "25 km", "30 km", "35 km", "40 km", "42 km")
+Gender <- rep(c("Male", "Female"),each=9)
+Diff <- c()
+lengthj <- c(1,10)
+for (j in lengthj) {
+  Diff[j] <- mean(d5k[which(df$Gender == Gender[j])])
+  Diff[j+1] <- mean(d10k[which(df$Gender == Gender[j+1])])
+  Diff[j+2] <- mean(d15k[which(df$Gender == Gender[j+2])])
+  Diff[j+3] <- mean(d20k[which(df$Gender == Gender[j+3])])
+  Diff[j+4] <- mean(d25k[which(df$Gender == Gender[j+4])])
+  Diff[j+5] <- mean(d30k[which(df$Gender == Gender[j+5])])
+  Diff[j+6] <- mean(d35k[which(df$Gender == Gender[j+6])])
+  Diff[j+7] <- mean(d40k[which(df$Gender == Gender[j+7])])
+  Diff[j+8] <- mean(d42k[which(df$Gender == Gender[j+8])])
+}
+x <- data.frame("Checkpoint" = rep(Checkpoint,2), "Diff" = Diff, "Gender" = Gender)
 ```
 
 ```{r}
 ggplot(data=x, aes(x=Checkpoint, y=Diff, fill = Gender, color=Gender)) +
   geom_bar(stat="identity",position=position_dodge(), alpha=0.5) + 
-  scale_x_discrete(limits=c("5 km", "10 km", "15 km", "20 km", "25 km",
-                            "30 km", "35 km", "40 km", "42 km")) + theme(legend.position = c(0.15, 0.8)) +
+  scale_x_discrete(limits=Checkpoint) + theme(legend.position = c(0.15, 0.8)) +
   ylab("Difference to average pace (%)") + scale_y_continuous(breaks=seq(-15,15,5))
 ```
 ```{r}
@@ -188,94 +193,50 @@ for (i in 1:nrow(df)) {
 }
 ```
 ```{r}
-x1 <- data.frame("Leg" = rep(c("km 5-10", "km 10-15", "km 15-20", "km 20-25", 
-                                     "km 25-30", "km 30-35", "km 35-40", "km 40-42"),2),
-                "Diff" = c(mean(d5to10k[which(df$Gender == "Male")]), mean(d10to15k[which(df$Gender == "Male")]),
-                           mean(d15to20k[which(df$Gender == "Male")]), mean(d20to25k[which(df$Gender == "Male")]),
-                           mean(d25to30k[which(df$Gender == "Male")]), mean(d30to35k[which(df$Gender == "Male")]),
-                           mean(d35to40k[which(df$Gender == "Male")]), mean(d40to42k[which(df$Gender == "Male")]),
-                           mean(d5to10k[which(df$Gender == "Female")]), mean(d10to15k[which(df$Gender == "Female")]),
-                           mean(d15to20k[which(df$Gender == "Female")]), mean(d20to25k[which(df$Gender == "Female")]),
-                           mean(d25to30k[which(df$Gender == "Female")]), mean(d30to35k[which(df$Gender == "Female")]),
-                           mean(d35to40k[which(df$Gender == "Female")]), mean(d40to42k[which(df$Gender == "Female")])),
-                "Gender" = rep(c("Male", "Female"),each=8))
+Leg <- c("km 5-10", "km 10-15", "km 15-20", "km 20-25", "km 25-30", "km 30-35", "km 35-40", "km 40-42")
+Gender <- rep(c("Male", "Female"),each=8)
+Diff <- c()
+lengthj <- c(1,9)
+for (j in lengthj) {
+  Diff[j] <- mean(d5to10k[which(df$Gender == Gender[j])])
+  Diff[j+1] <- mean(d10to15k[which(df$Gender == Gender[j+1])])
+  Diff[j+2] <- mean(d15to20k[which(df$Gender == Gender[j+2])])
+  Diff[j+3] <- mean(d20to25k[which(df$Gender == Gender[j+3])])
+  Diff[j+4] <- mean(d25to30k[which(df$Gender == Gender[j+4])])
+  Diff[j+5] <- mean(d30to35k[which(df$Gender == Gender[j+5])])
+  Diff[j+6] <- mean(d35to40k[which(df$Gender == Gender[j+6])])
+  Diff[j+7] <- mean(d40to42k[which(df$Gender == Gender[j+7])])
+}
+x1 <- data.frame("Leg" = rep(Leg,2), "Diff" = Diff, "Gender" = Gender)
 ```
 ```{r}
 ggplot(data=x1, aes(x=Leg, y=Diff, fill=Gender, color=Gender)) + ylab("Difference to 5k pace (%)") +
   geom_bar(stat="identity",position=position_dodge(), alpha=0.5) + theme(legend.position = c(0.15, 0.8)) +
-  scale_x_discrete(limits=c("km 5-10", "km 10-15", "km 15-20", "km 20-25",
-                            "km 25-30", "km 30-35", "km 35-40", "km 40-42"))
-  
+  scale_x_discrete(limits=Leg)
 ```
+
 ```{r}
-unique(df$AgeGroup)
-```
-```{r}
-x2 <- data.frame("Leg" = rep(c("km 5-10", "km 10-15", "km 15-20", "km 20-25", 
-                                     "km 25-30", "km 30-35", "km 35-40", "km 40-42"),6),
-                "Diff" = c(mean(d5to10k[which(df$AgeGroup == "1 ~ 24")]), 
-                           mean(d10to15k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d15to20k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d20to25k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d25to30k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d30to35k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d35to40k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d40to42k[which(df$AgeGroup == "1 ~ 24")]),
-                           mean(d5to10k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d10to15k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d15to20k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d20to25k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d25to30k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d30to35k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d35to40k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d40to42k[which(df$AgeGroup == "25 ~ 34")]),
-                           mean(d5to10k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d10to15k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d15to20k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d20to25k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d25to30k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d30to35k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d35to40k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d40to42k[which(df$AgeGroup == "35 ~ 44")]),
-                           mean(d5to10k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d10to15k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d15to20k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d20to25k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d25to30k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d30to35k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d35to40k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d40to42k[which(df$AgeGroup == "45 ~ 54")]),
-                           mean(d5to10k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d10to15k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d15to20k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d20to25k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d25to30k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d30to35k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d35to40k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d40to42k[which(df$AgeGroup == "55 ~ 64")]),
-                           mean(d5to10k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d10to15k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d15to20k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d20to25k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d25to30k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d30to35k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d35to40k[which(df$AgeGroup == "65 ~ 90")]),
-                           mean(d40to42k[which(df$AgeGroup == "65 ~ 90")])),
-                "AgeGroup" = rep(c("1 ~ 24", "25 ~ 34", "35 ~ 44", "45 ~ 54", "55 ~ 64", "65 ~ 90"),each=8))
+AgeGroup <- rep(c("1 ~ 24", "25 ~ 34", "35 ~ 44", "45 ~ 54", "55 ~ 64", "65 ~ 90"), each=8)
+Diff <- c()
+lengthj <- c(1,9,17,25,33,41)
+for (j in lengthj) {
+  Diff[j] <- mean(d5to10k[which(df$AgeGroup == AgeGroup[j])])
+  Diff[j+1] <- mean(d10to15k[which(df$AgeGroup == AgeGroup[j+1])])
+  Diff[j+2] <- mean(d15to20k[which(df$AgeGroup == AgeGroup[j+2])])
+  Diff[j+3] <- mean(d20to25k[which(df$AgeGroup == AgeGroup[j+3])])
+  Diff[j+4] <- mean(d25to30k[which(df$AgeGroup == AgeGroup[j+4])])
+  Diff[j+5] <- mean(d30to35k[which(df$AgeGroup == AgeGroup[j+5])])
+  Diff[j+6] <- mean(d35to40k[which(df$AgeGroup == AgeGroup[j+6])])
+  Diff[j+7] <- mean(d40to42k[which(df$AgeGroup == AgeGroup[j+7])])
+}
+x2 <- data.frame("Leg" = rep(Leg,6),
+                "Diff" = Diff, "AgeGroup" = AgeGroup)
 ```
 ```{r}
 ggplot(data=x2, aes(x=Leg, y=Diff, fill=AgeGroup, color=AgeGroup)) + ylab("Difference to 5k pace (%)") +
-  geom_bar(stat="identity",position=position_dodge(), alpha=0.5) + theme(legend.position = c(0.15, 0.8))
-  
+  geom_bar(stat="identity",position=position_dodge(), alpha=0.5) + theme(legend.position = c(0.15, 0.7)) +
+  scale_x_discrete(limits=Leg)
 ```
-
-
-
-
-
-
-
-
 
 
 

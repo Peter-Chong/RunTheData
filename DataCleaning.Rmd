@@ -214,10 +214,3 @@ write.csv(new, "/Users/wengliangchong/Desktop/RunTheData/MarathonData.csv", row.
 
 
 
-
-
-
-
-
-
-

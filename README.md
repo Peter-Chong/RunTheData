@@ -1,3 +1,3 @@
 # RunTheData
 
-![alt text](https://mms.businesswire.com/media/20150827005182/en/482776/5/Skechers_Performance_Los_Angeles_Marathon_Logos_2016_Page_1.jpg)
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-07-26%20at%2010.17.11%20PM.png" width="500" height="350" />

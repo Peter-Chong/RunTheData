@@ -8,7 +8,6 @@ library(dplyr)
 library(ggplot2)
 library(ggridges)
 library(lubridate)
-library(scales)
 ```
 
 ``` r

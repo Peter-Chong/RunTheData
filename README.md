@@ -1,6 +1,6 @@
 # Los Angeles Marathon Finishing Time Estimator
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-07-26%20at%2010.17.11%20PM.png" width="1000" height="250" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-07-26%20at%2010.17.11%20PM.png" width="900" height="230" />
 
 ## Problem Statement
 
@@ -20,8 +20,9 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 
 **Programming Language:** R and Python  
 **Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges  
-**Data Source:** www.trackshackresults.com/lamarathon/results/2015_Marathon/  
-                 www.timeanddate.com/weather/usa/los-angeles
+**Data Source:**  
+www.trackshackresults.com/lamarathon/results/2015_Marathon/  
+www.timeanddate.com/weather/usa/los-angeles
 
 ## Data Preprocessing
 
@@ -38,7 +39,7 @@ Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with ap
 * Net Time - finishing time since the runner cross the starting line
 * Hometown - hometown of each runner
 
-#### Feature enginering and external data
+### Feature enginering and external data
 
 For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
   

@@ -49,10 +49,11 @@ The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time wer
 
 Lastly, I added a variable called Hubris which essentially is the percentage changed in each leg compared to their 5k to 10k pace. By assuming each runners' ideal pace is ran between 5k to 10k, I was hoping this variable can show us a different analysis during EDA.  
   
-## Things I wish to improve if I do this project again
+## Things I wish to improve on if I were to do this project again
 
-* Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location.
-
+* Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
+* Insert more data variables such as race elevation and runner's past marathon results
+* Create a map that visualize where the runners came from
 
 
 

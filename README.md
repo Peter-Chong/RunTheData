@@ -20,7 +20,8 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 
 **Programming Language:** R and Python  
 **Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges  
-**Data Source:** trackshackresults.com/lamarathon/results/2015_Marathon/, timeanddate.com/weather/usa/los-angeles
+**Data Source:** [trackshackresults.com/lamarathon/results/2015_Marathon/]  
+                 [timeanddate.com/weather/usa/los-angeles]
 
 ## Data Preprocessing
 
@@ -37,7 +38,7 @@ Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with ap
 * Net Time - finishing time since the runner cross the starting line
 * Hometown - hometown of each runner
 
-### Feature enginering and external data
+#### Feature enginering and external data
 
 For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
   

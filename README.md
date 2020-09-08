@@ -20,8 +20,8 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 
 **Programming Language:** R and Python  
 **Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges  
-**Data Source:** [trackshackresults.com/lamarathon/results/2015_Marathon/]  
-                 [timeanddate.com/weather/usa/los-angeles]
+**Data Source:** www.trackshackresults.com/lamarathon/results/2015_Marathon/  
+                 www.timeanddate.com/weather/usa/los-angeles
 
 ## Data Preprocessing
 

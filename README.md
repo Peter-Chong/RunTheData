@@ -18,12 +18,39 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 
 ## Code and Resources Used
 
-**Programming Language:** R and Python
-**Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges
-**Data Source:** [www.trackshackresults.com/lamarathon/results/2015_Marathon/]
+**Programming Language:** R and Python  
+**Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges  
+**Data Source:** trackshackresults.com/lamarathon/results/2015_Marathon/, timeanddate.com/weather/usa/los-angeles
 
 ## Data Preprocessing
 
-Initially 
+Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with approximately 75k runners in total. The following features were scrapped using my web scrapper:  
 
-Initially there were 4 data sets, one for each year of 2015-2018, with approximately 25k runners per year or 100k runners in total. The following features were given in each set:
+* Name - name of each runner
+* Bib - race number given to each runner
+* Age - age of each runner
+* Position - overall ranking of runner
+* Gender Position - ranking of runner based on gender
+* Division Position - ranking of runner based on age division
+* 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K - elapsed time at each 5 kilometers split
+* Clock Time - finishing time since the race started
+* Net Time - finishing time since the runner cross the starting line
+* Hometown - hometown of each runner
+
+### Feature enginering and external data
+
+For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
+  
+Historical weather data (temperature and humidity) from the [internet](https://www.timeanddate.com/weather/usa/los-angeles) for each year was collected and added. The time for these weather data was 8:47am since the marathon started at 8am.  
+  
+The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time were transformed into seconds to make arithmetic easier. Age Group and the pace for each legs were added too.
+
+Lastly, I added a variable called Hubris which essentially is the percentage changed in each leg compared to their 5k to 10k pace. By assuming each runners' ideal pace is ran between 5k to 10k, I was hoping this variable can show us a different analysis during EDA.  
+  
+## Things I wish to improve if I do this project again
+
+* Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location.
+
+
+
+

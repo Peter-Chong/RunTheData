@@ -22,7 +22,9 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 **Packages:** Selenium, Pandas, ggplot2, dplyr, ggridges  
 **Data Source:**  
 www.trackshackresults.com/lamarathon/results/2015_Marathon/  
-www.timeanddate.com/weather/usa/los-angeles
+www.timeanddate.com/weather/usa/los-angeles. 
+**Inspiration:**
+www.towardsdatascience.com/half-marathon-finish-time-prediction-part-1-5807760033eb
 
 ## Data Preprocessing
 
@@ -68,6 +70,11 @@ Lastly to prove that teenagers do not pace themselves evenly, we plot a bar char
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-22-1.png" />
 
 ## Model Building
+
+Firstly, I split the dataset into a training set (80% of the runners) and a test set (20% of the runners).
+
+The metric to evaluate my models will be MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error). This is because they are both relatively easy to interpret.
+
 
 ## Things I wish to improve on if I were to do this project again
 

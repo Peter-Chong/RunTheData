@@ -48,12 +48,28 @@ Historical weather data (temperature and humidity) from the [internet](https://w
 The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time were transformed into seconds to make arithmetic easier. Age Group and the pace for each legs were added too.
 
 Lastly, I added a variable called Hubris which essentially is the percentage changed in each leg compared to their 5k to 10k pace. By assuming each runners' ideal pace is ran between 5k to 10k, I was hoping this variable can show us a different analysis during EDA.  
+
+## Exploratory data analysis
+
+Below are a few highlights from the my EDA.  
+  
+The graph below shows the standard deviation of the pace for the 9 time split computed individually for each runner, where one circle represents a runner. The darker the circle, the higher standard deviation of the pace for the runner. In other words, the darker the circle means that the runner changes his or her pace greatly every 5 kilometers split; a more uneven pace.  
+  
+By looking at the graph, we can observe that the more uneven pace leads to longer finishing time. It is clear that it would be advantageous if the runners kept an even pace throughout the marathon.
+
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png" />
   
 ## Things I wish to improve on if I were to do this project again
 
 * Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
 * Insert more data variables such as race elevation and runner's past marathon results
 * Create a map that visualize where the runners came from
+
+
+
+
+
+
 
 
 

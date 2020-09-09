@@ -57,8 +57,16 @@ The graph below shows the standard deviation of the pace for the 9 time split co
   
 By looking at the graph, we can observe that the more uneven pace leads to longer finishing time. It is clear that it would be advantageous if the runners kept an even pace throughout the marathon.
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png"  width="800"/>
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png" />
+
+Other than that, it is also interesting to see the relationship between finishing time and age. The graph below is a 2d density plot of finishing time against age. From this graph, it can be observed that most of the teenagers finish their marathons at around 6.5 hours whereas most of the runners at the age of early 30s finish at around 4.5 hours. The reason behind this might be because teenagers over estimate themselves at the early stage of the race and ran at a higher pace which lead them to exhaustion at the second half of the marathon whereas runners at the age of early 30s pace themselves more carefully.  
   
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-9-1.png" />
+
+Lastly to prove that teenagers do not pace themselves evenly, we plot a bar chart of Hubris against each 5k split per age group. Hubris is variable showing the percentage changed in each split compared to the runner's 5k to 10k pace. The higher the bars means that the higher the difference in pace compared to their 5k to 10k pace. It can be seen that the younger the runner is, the higher the Hubris is, which explains why I believe teenagers do not pace themselves well.  
+  
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-22-1.png" />
+
 ## Things I wish to improve on if I were to do this project again
 
 * Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location

@@ -57,7 +57,7 @@ The graph below shows the standard deviation of the pace for the 9 time split co
   
 By looking at the graph, we can observe that the more uneven pace leads to longer finishing time. It is clear that it would be advantageous if the runners kept an even pace throughout the marathon.
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png"  width="500"/>
   
 ## Things I wish to improve on if I were to do this project again
 

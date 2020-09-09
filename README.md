@@ -39,7 +39,7 @@ Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with ap
 * Net Time - finishing time since the runner cross the starting line
 * Hometown - hometown of each runner
 
-### Feature enginering and external data
+### Feature Enginering and External Data
 
 For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
   
@@ -49,7 +49,7 @@ The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time wer
 
 Lastly, I added a variable called Hubris which essentially is the percentage changed in each leg compared to their 5k to 10k pace. By assuming each runners' ideal pace is ran between 5k to 10k, I was hoping this variable can show us a different analysis during EDA.  
 
-## Exploratory data analysis
+## Exploratory Data Analysis
 
 Below are a few highlights from the my EDA.  
   
@@ -66,6 +66,8 @@ Other than that, it is also interesting to see the relationship between finishin
 Lastly to prove that teenagers do not pace themselves evenly, we plot a bar chart of Hubris against each 5k split per age group. Hubris is variable showing the percentage changed in each split compared to the runner's 5k to 10k pace. The higher the bars means that the higher the difference in pace compared to their 5k to 10k pace. It can be seen that the younger the runner is, the higher the Hubris is, which explains why I believe teenagers do not pace themselves well.  
   
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-22-1.png" />
+
+## Model Building
 
 ## Things I wish to improve on if I were to do this project again
 

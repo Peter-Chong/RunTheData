@@ -2,6 +2,22 @@
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-07-26%20at%2010.17.11%20PM.png" width="900" height="230" />
 
+## Table of Contents  
+
+<!--ts-->
+   * [Problem Statement](#problem-statement)
+   * [Project Overview](#project-overview)
+   * [Code and Resources Used](#code-and-resources-used)
+   * [Data Preprocessing](#data-preprocessing)
+      * [Feature Engineering and External Data](#feature-engineering-and-external-data)
+   * [Exploratory Data Analysis](#exploratory-data-analysis)
+   * [Model Building](#model-building)
+   * [Results](#results)
+   * [Multiple Linear Regressions Performance](#multiple-linear-regressions-performance)
+   * [Personal Prediction Result](#personal-prediction-result)
+   * [Things I wish to improve on if I were to do this project again](#things-i-wish-to-improve-on-if-i-were-to-do-this-project-again)
+<!--te-->
+
 ## Problem Statement
 
 As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. Although I have never ran Los Angeles Marathon before, I would like to see if my model can predict my past marathon which was held in a different country. By using these predictors, I was able to predict my finishing time with an error of only 17 minutes. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability to an error of only 5 minutes.
@@ -41,7 +57,7 @@ Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with ap
 * Net Time - finishing time since the runner cross the starting line
 * Hometown - hometown of each runner
 
-### Feature Enginering and External Data
+### Feature Engineering and External Data
 
 For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
   

@@ -86,11 +86,24 @@ Below is a table of the results of each model for 3 scenarios
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.41%20PM.png" width="275" /><img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.56%20PM.png" width="275" /><img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.05%20PM.png" width="275" />
 
+Multiple Linear Regression seems to be the best model for all those scenarios. 
+
+## Multiple Linear Regressions Performance
+
+Below is the results for 3 scenarios if we implement multiple linear regression. We can see that by just knowing our 5km and 10km split times, we can greatly decrease our MAE by more than 50%.
+
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.18%20PM.png" />
+
+Other than that, we can visualise the predicted value against the actual value
+
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/ModelBuilding_files/figure-gfm/unnamed-chunk-11-1.png" />
+
 ## Things I wish to improve on if I were to do this project again
 
 * Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
 * Insert more data variables such as race elevation and runner's past marathon results
 * Create a map that visualize where the runners came from
+* 
 
 
 

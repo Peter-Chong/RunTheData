@@ -140,20 +140,18 @@ lasso.rsquarebefore <- round(R2(prediction, test$X42ks),3)
 lasso.maebefore <- round(mean(abs(test$X42ks - predict(lassoBeforeRaceDay, newx = testxbefore)))/60,3)
 lasso.mapebefore <- round(mean(abs((test$X42ks - predict(lassoBeforeRaceDay, newx = testxbefore))/test$X42ks))*100,3)
 
-preRaceResult <- matrix(c(mlr.rsquarebefore, mlr.maebefore, mlr.mapebefore,
-                          lasso.rsquarebefore, lasso.maebefore, lasso.mapebefore,
-                          ridge.rsquarebefore, ridge.maebefore, ridge.mapebefore),
-                        ncol=3,byrow=TRUE)
-colnames(preRaceResult) <- c("Rsquared","MAE (mins)","MAPE")
-rownames(preRaceResult) <- c("Multiple Linear","Lasso","Ridge")
-preRaceResult <- as.table(preRaceResult)
-preRaceResult
+preRaceResult <- matrix(c("MLR", mlr.rsquarebefore, mlr.maebefore, mlr.mapebefore,
+                          "Lasso", lasso.rsquarebefore, lasso.maebefore, lasso.mapebefore,
+                          "Ridge", ridge.rsquarebefore, ridge.maebefore, ridge.mapebefore),
+                        ncol=4, byrow=TRUE)
+kable(preRaceResult, col.names = c("Pre-race", "Rsquared","MAE (mins)","MAPE"), align = "lccc")
 ```
 
-    ##                 Rsquared MAE (mins)   MAPE
-    ## Multiple Linear    0.185     49.701 16.418
-    ## Lasso              0.180     49.704 16.420
-    ## Ridge              0.180     49.757 16.450
+| Pre-race | Rsquared | MAE (mins) |  MAPE  |
+| :------- | :------: | :--------: | :----: |
+| MLR      |  0.185   |   49.701   | 16.418 |
+| Lasso    |   0.18   |   49.704   | 16.42  |
+| Ridge    |   0.18   |   49.757   | 16.45  |
 
 Multiple Linear Regression shows the best model among these three
 pre-race models.
@@ -175,20 +173,18 @@ lasso.rsquare10k <- round(R2(prediction, test$X42ks),3)
 lasso.mae10k <- round(mean(abs(test$X42ks - predict(lassoAfter10k, newx = testx10k)))/60,3)
 lasso.mape10k <- round(mean(abs((test$X42ks - predict(lassoAfter10k, newx = testx10k))/test$X42ks))*100,3)
 
-X10kResult <- matrix(c(mlr.rsquare10k, mlr.mae10k, mlr.mape10k,
-                          lasso.rsquare10k, lasso.mae10k, lasso.mape10k,
-                          ridge.rsquare10k, ridge.mae10k, ridge.mape10k),
-                        ncol=3,byrow=TRUE)
-colnames(X10kResult) <- c("Rsquared","MAE (mins)","MAPE")
-rownames(X10kResult) <- c("Multiple Linear","Lasso","Ridge")
-X10kResult <- as.table(X10kResult)
-X10kResult
+X10kResult <- matrix(c("MLR", mlr.rsquare10k, mlr.mae10k, mlr.mape10k,
+                          "Lasso", lasso.rsquare10k, lasso.mae10k, lasso.mape10k,
+                          "Ridge", ridge.rsquare10k, ridge.mae10k, ridge.mape10k),
+                        ncol=4,byrow=TRUE)
+kable(X10kResult, col.names = c("After 10km", "Rsquared","MAE (mins)","MAPE"), align = "lccc")
 ```
 
-    ##                 Rsquared MAE (mins)   MAPE
-    ## Multiple Linear    0.815     21.686  6.784
-    ## Lasso              0.818     21.722  6.797
-    ## Ridge              0.793     23.925  7.557
+| After 10km | Rsquared | MAE (mins) | MAPE  |
+| :--------- | :------: | :--------: | :---: |
+| MLR        |  0.815   |   21.686   | 6.784 |
+| Lasso      |  0.818   |   21.722   | 6.797 |
+| Ridge      |  0.793   |   23.925   | 7.557 |
 
 Again, Multiple Linear Regression shows the best model among these three
 after 10km models.
@@ -210,20 +206,18 @@ lasso.rsquare20k <- round(R2(prediction, test$X42ks),3)
 lasso.mae20k <- round(mean(abs(test$X42ks - predict(lassoAfter20k, newx = testx20k)))/60,3)
 lasso.mape20k <- round(mean(abs((test$X42ks - predict(lassoAfter20k, newx = testx20k))/test$X42ks))*100,3)
 
-X20kResult <- matrix(c(mlr.rsquare20k, mlr.mae20k, mlr.mape20k,
-                          lasso.rsquare20k, lasso.mae20k, lasso.mape20k,
-                          ridge.rsquare20k, ridge.mae20k, ridge.mape20k),
-                        ncol=3,byrow=TRUE)
-colnames(X20kResult) <- c("Rsquared","MAE (mins)","MAPE")
-rownames(X20kResult) <- c("Multiple Linear","Lasso","Ridge")
-X20kResult <- as.table(X20kResult)
-X20kResult
+X20kResult <- matrix(c("MLR", mlr.rsquare20k, mlr.mae20k, mlr.mape20k,
+                          "Lasso", lasso.rsquare20k, lasso.mae20k, lasso.mape20k,
+                          "Ridge", ridge.rsquare20k, ridge.mae20k, ridge.mape20k),
+                        ncol=4,byrow=TRUE)
+kable(X20kResult, col.names = c("After 20km", "Rsquared","MAE (mins)","MAPE"), align = "lccc")
 ```
 
-    ##                 Rsquared MAE (mins)   MAPE
-    ## Multiple Linear    0.913     14.629  4.612
-    ## Lasso              0.915     14.654  4.622
-    ## Ridge              0.885     17.629  5.597
+| After 20km | Rsquared | MAE (mins) | MAPE  |
+| :--------- | :------: | :--------: | :---: |
+| MLR        |  0.913   |   14.629   | 4.612 |
+| Lasso      |  0.915   |   14.654   | 4.622 |
+| Ridge      |  0.885   |   17.629   | 5.597 |
 
 And finally Multiple Linear Regression is still the best model for after
 20km

@@ -252,3 +252,63 @@ abline(0,1, col = "red", lwd=2)
 ```
 
 ![](ModelBuilding_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+## Personal Prediction Result
+
+Let’s see what the model predicts for my previous marathon. The
+following is my past marathon’s details:  
+\* Age: 20  
+\* Gender: Male  
+\* Temp: 25  
+\* Humid: 89  
+\* AgeGroup: 1 ~ 24  
+\* Bib: 5893  
+\* Year: 2018  
+\* X5ks: 1880  
+\* X10ks: 3760  
+\* X15ks: 5750  
+\* X20ks: 7740  
+\* X42ks: 17586
+
+``` r
+data.new <- data.frame(
+  Age = 20, Gender = "Male", Temp = 25, Humid = 89, AgeGroup = "1 ~ 24", Bib = 5893,
+  Year = 2018, X5ks=1880, X10ks = 3760, X15ks=5750, X20ks = 7740, X42ks = 17586
+)
+predict(mlrBeforeRaceDay, newdata = data.new)
+```
+
+    ##        1 
+    ## 16571.16
+
+``` r
+predict(mlrAfter10k, newdata = data.new)
+```
+
+    ##        1 
+    ## 17846.51
+
+``` r
+predict(mlrAfter20k, newdata = data.new)
+```
+
+    ##        1 
+    ## 17926.26
+
+``` r
+personalResult <- matrix(c("Pre-race", "4:36:11", "4:53:06", "16.9", "5.77",
+                           "After 10km", "4:57:27", "4:53:06", "4.4", "1.48",
+                           "After 20km", "4:58:46", "4:53:06", "5.7", "1.93"),
+                         ncol=5, byrow=TRUE)
+kable(personalResult, col.names = c("", "Prediction", "Actual", "Error (mins)", " Error (%)"), align = "lcccc")
+```
+
+|            | Prediction | Actual  | Error (mins) | Error (%) |
+| :--------- | :--------: | :-----: | :----------: | :-------: |
+| Pre-race   |  4:36:11   | 4:53:06 |     16.9     |   5.77    |
+| After 10km |  4:57:27   | 4:53:06 |     4.4      |   1.48    |
+| After 20km |  4:58:46   | 4:53:06 |     5.7      |   1.93    |
+
+This is extremely surprising to me since the marathon I ran was in a
+totally different country, even a different continent, yet I am able to
+predict my finishing time to as close as 5 minutes error.

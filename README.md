@@ -103,9 +103,7 @@ Other than that, we can visualise the predicted value against the actual value
 * Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
 * Insert more data variables such as race elevation and runner's past marathon results
 * Create a map that visualize where the runners came from
-* 
-
-
+* Productionionize the model by building a flask API endpoint which takes in a list of values and returns an estimated finishing time
 
 
 

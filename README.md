@@ -4,7 +4,7 @@
 
 ## Problem Statement
 
-As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age and gender. By using these four predictors, I was able to predict XXX. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability.
+As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. By using these predictors, I was able to predict my finishing time to a certain degree. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability.
 
 My ultimate goal is to predict marathon finishing time in general and not only for Los Angeles Marathon. In order to do this, I will require more data which I intend to do in the future.
 
@@ -13,8 +13,8 @@ My ultimate goal is to predict marathon finishing time in general and not only f
 * Built a web scrapper from scratch and scraped over 75,000 marathon runners data from Los Angeles Marathon official website using python and selenium
 * Engineered features and cleaned data by binding all datasets, parsing marathon times into seconds and adding appropriate columns
 * Performed deep exploratory data analysis which includes 12 different charts and comments
-* Optimized Linear, XXX, and Random Forest Regressors using GridsearchCV (XXX) to reach the best model
-* Metrics of XXX R^2 and RMSE (Root Mean Squared Error) are used to measure the results
+* Optimized Multiple Linear Regression, Lasso, and Ridge to reach the best model
+* Metrics of R^2, MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error) are used to measure the results
 
 ## Code and Resources Used
 
@@ -73,8 +73,20 @@ Lastly to prove that teenagers do not pace themselves evenly, we plot a bar char
 
 Firstly, I split the dataset into a training set (80% of the runners) and a test set (20% of the runners).
 
-The metric to evaluate my models will be MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error). This is because they are both relatively easy to interpret.
+The metric to evaluate my models will be R^2, MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error). This is because they are all relatively easy to interpret.
 
+I tried three different models:
+* Multiple Linear Regression
+* Lasso Regression
+* Ridge Regression
+
+## Results
+
+Below is a table of the results of each model for 3 scenarios
+
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.41%20PM.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.56%20PM.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.05%20PM.png" />
 
 ## Things I wish to improve on if I were to do this project again
 

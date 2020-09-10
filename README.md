@@ -102,7 +102,7 @@ Other than that, we can visualise the predicted value against the actual value
 
 Let’s see what the model predicts for my previous marathon. 
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%206.57.01%20PM.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%206.57.01%20PM.png" width="800" />
 
 This is extremely surprising to me since the marathon I ran was in a totally different country, even a different continent, yet I am able to predict my finishing time to as close as 5 minutes error.
 

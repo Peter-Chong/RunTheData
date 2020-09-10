@@ -4,7 +4,7 @@
 
 ## Problem Statement
 
-As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. By using these predictors, I was able to predict my finishing time to a certain degree. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability.
+As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. Although I have never ran Los Angeles Marathon before, I would like to see if my model can predict my past marathon which was held in a different country. By using these predictors, I was able to predict my finishing time with an error of only 17 minutes. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability to an error of only 5 minutes.
 
 My ultimate goal is to predict marathon finishing time in general and not only for Los Angeles Marathon. In order to do this, I will require more data which I intend to do in the future.
 
@@ -98,12 +98,33 @@ Other than that, we can visualise the predicted value against the actual value
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/ModelBuilding_files/figure-gfm/unnamed-chunk-11-1.png" />
 
+## Personal Prediction Result
+
+Let’s see what the model predicts for my previous marathon. 
+
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%206.57.01%20PM.png" />
+
+This is extremely surprising to me since the marathon I ran was in a totally different country, even a different continent, yet I am able to predict my finishing time to as close as 5 minutes error.
+
 ## Things I wish to improve on if I were to do this project again
 
 * Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
 * Insert more data variables such as race elevation and runner's past marathon results
 * Create a map that visualize where the runners came from
 * Productionionize the model by building a flask API endpoint which takes in a list of values and returns an estimated finishing time
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

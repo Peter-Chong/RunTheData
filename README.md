@@ -84,9 +84,9 @@ I tried three different models:
 
 Below is a table of the results of each model for 3 scenarios
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.41%20PM.png" />
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.56%20PM.png" />
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.05%20PM.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.41%20PM.png" width="300" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.38.56%20PM.png" width="300" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.05%20PM.png" width="300" />
 
 ## Things I wish to improve on if I were to do this project again
 

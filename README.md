@@ -92,7 +92,7 @@ Multiple Linear Regression seems to be the best model for all those scenarios.
 
 Below is the results for 3 scenarios if we implement multiple linear regression. We can see that by just knowing our 5km and 10km split times, we can greatly decrease our MAE by more than 50%.
 
-<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.18%20PM.png" />
+<img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.18%20PM.png" width="800" />
 
 Other than that, we can visualise the predicted value against the actual value
 

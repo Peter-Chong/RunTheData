@@ -12,7 +12,8 @@ a) Temperature at 8:47am for every year in celcius
 b) Humidity at 8:47am for every year in percentage  
 c) Age Group  
 d) Every leg in seconds  
-e) Pace f)
+e) Pace  
+f)
 Hubris
 
 ## Adding temperature at 8:47am for every year in celcius

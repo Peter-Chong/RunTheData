@@ -20,7 +20,7 @@
 
 ## Problem Statement
 
-As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. Although I have never ran Los Angeles Marathon before, I would like to see if my model can predict my past marathon which was held in a different country. By using these predictors, I was able to predict my finishing time with an error of only 17 minutes. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability to an error of only 5 minutes.
+As an avid marathon runner, I always wonder if I can predict my finishing time before the marathon day based on my marathon day's temperature, humidity, age, gender and etc. Although I have never run Los Angeles Marathon before, I would like to see if my model can predict my past marathon which was held in a different country. By using these predictors, I was able to predict my finishing time with an error of only 17 minutes. In order to obtain a more accurate prediction, I added my running split times which greatly increase my prediction ability to an error of only 5 minutes.
 
 My ultimate goal is to predict marathon finishing time in general and not only for Los Angeles Marathon. In order to do this, I will require more data which I intend to do in the future.
 
@@ -44,7 +44,7 @@ www.towardsdatascience.com/half-marathon-finish-time-prediction-part-1-580776003
 
 ## Data Preprocessing
 
-Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with approximately 75k runners in total. The following features were scrapped using my web scrapper:  
+Initially, there were 120 data sets (4 years x 15 age groups x 2 genders) with approximately 75k runners in total. The following features were scrapped using my web scrapper:  
 
 * Name - name of each runner
 * Bib - race number given to each runner
@@ -52,36 +52,36 @@ Initially there were 120 data sets (4 years x 15 age groups x 2 genders) with ap
 * Position - overall ranking of runner
 * Gender Position - ranking of runner based on gender
 * Division Position - ranking of runner based on age division
-* 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K - elapsed time at each 5 kilometers split
+* 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K - elapsed time at every 5 kilometers split
 * Clock Time - finishing time since the race started
-* Net Time - finishing time since the runner cross the starting line
+* Net Time - finishing time since the runner crosses the starting line
 * Hometown - hometown of each runner
 
 ### Feature Engineering and External Data
 
-For each of the datasets, I removed all the rows with NULL split times, added gender and year columns and merge all 120 datasets together into one big csv file.
+For each of the datasets, I removed all the rows with NULL split times, added gender and year columns, and merge all 120 datasets together into one big csv file.
   
-Historical weather data (temperature and humidity) from the [internet](https://www.timeanddate.com/weather/usa/los-angeles) for each year was collected and added. The time for these weather data was 8:47am since the marathon started at 8am.  
+Historical weather data (temperature and humidity) from the [internet](https://www.timeanddate.com/weather/usa/los-angeles) for each year were collected and added. The time for these weather data was 8:47am since the marathon started at 8am.  
   
-The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time were transformed into seconds to make arithmetic easier. Age Group and the pace for each legs were added too.
+The variables 5K, 10K, 15K, 20K, 25K, 30K, 35K, 40K, Clock Time and Net Time were transformed into seconds to make arithmetic easier. Age Group and the pace for each leg were added too.
 
 Lastly, I added a variable called Hubris which essentially is the percentage changed in each leg compared to their 5k to 10k pace. By assuming each runners' ideal pace is ran between 5k to 10k, I was hoping this variable can show us a different analysis during EDA.  
 
 ## Exploratory Data Analysis
 
-Below are a few highlights from the my EDA.  
+Below are a few highlights from my EDA.  
   
-The graph below shows the standard deviation of the pace for the 9 time split computed individually for each runner, where one circle represents a runner. The darker the circle, the higher standard deviation of the pace for the runner. In other words, the darker the circle means that the runner changes his or her pace greatly every 5 kilometers split; a more uneven pace.  
+The graph below shows the standard deviation of the pace for the 9 time splits computed individually for each runner, where one circle represents a runner. The darker the circle, the higher the standard deviation of the pace for the runner. In other words, the darker the circle means that the runner changes his or her pace greatly every 5 kilometers split; a more uneven pace.  
   
-By looking at the graph, we can observe that the more uneven pace leads to longer finishing time. It is clear that it would be advantageous if the runners kept an even pace throughout the marathon.
+By looking at the graph, we can observe that the more uneven pace leads to a longer finishing time. It is clear that it would be advantageous if the runners kept an even pace throughout the marathon.
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-14-1.png" />
 
-Other than that, it is also interesting to see the relationship between finishing time and age. The graph below is a 2d density plot of finishing time against age. From this graph, it can be observed that most of the teenagers finish their marathons at around 6.5 hours whereas most of the runners at the age of early 30s finish at around 4.5 hours. The reason behind this might be because teenagers over estimate themselves at the early stage of the race and ran at a higher pace which lead them to exhaustion at the second half of the marathon whereas runners at the age of early 30s pace themselves more carefully.  
+Other than that, it is also interesting to see the relationship between finishing time and age. The graph below is a 2d density plot of finishing time against age. From this graph, it can be observed that most of the teenagers finish their marathons at around 6.5 hours whereas most of the runners at the age of early 30s finish at around 4.5 hours. The reason behind this might be because teenagers overestimate themselves at the early stage of the race and ran at a higher pace which leads them to exhaustion at the second half of the marathon whereas runners at the age of early 30s pace themselves more carefully.  
   
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-9-1.png" />
 
-Lastly to prove that teenagers do not pace themselves evenly, we plot a bar chart of Hubris against each 5k split per age group. Hubris is variable showing the percentage changed in each split compared to the runner's 5k to 10k pace. The higher the bars means that the higher the difference in pace compared to their 5k to 10k pace. It can be seen that the younger the runner is, the higher the Hubris is, which explains why I believe teenagers do not pace themselves well.  
+Lastly, to prove that teenagers do not pace themselves evenly, we plot a bar chart of Hubris against each 5k split per age group. Hubris is variable showing the percentage changed in each split compared to the runner's 5k to 10k pace. The higher the bars means that the higher the difference in pace compared to their 5k to 10k pace. It can be seen that the younger the runner is, the higher the Hubris is, which explains why I believe teenagers do not pace themselves well.  
   
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/EDA_files/figure-gfm/unnamed-chunk-22-1.png" />
 
@@ -89,7 +89,7 @@ Lastly to prove that teenagers do not pace themselves evenly, we plot a bar char
 
 Firstly, I split the dataset into a training set (80% of the runners) and a test set (20% of the runners).
 
-The metric to evaluate my models will be R^2, MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error). This is because they are all relatively easy to interpret.
+The metrics to evaluate my models will be R^2, MAE (Mean Absolute Error) and MAPE (Mean Absolute Percentage Error). This is because they are all relatively easy to interpret.
 
 I tried three different models:
 * Multiple Linear Regression
@@ -110,7 +110,7 @@ Below is the results for 3 scenarios if we implement multiple linear regression.
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/Images/Screenshot%202020-09-10%20at%203.39.18%20PM.png" width="800" />
 
-Other than that, we can visualise the predicted value against the actual value
+Other than that, we can visualize the predicted value against the actual value
 
 <img src="https://github.com/Peter-Chong/RunTheData/blob/master/ModelBuilding_files/figure-gfm/unnamed-chunk-11-1.png" />
 
@@ -124,10 +124,10 @@ This is extremely surprising to me since the marathon I ran was in a totally dif
 
 ## Things I wish to improve on if I were to do this project again
 
-* Use a better historical weather dataset. Instead of constant values for each year, the weather variable should based on each runners' halfway point and location
+* Use a better historical weather dataset. Instead of constant values for each year, the weather variable should be based on each runners' halfway point and location
 * Insert more data variables such as race elevation and runner's past marathon results
-* Create a map that visualize where the runners came from
-* Productionionize the model by building a flask API endpoint which takes in a list of values and returns an estimated finishing time
+* Create a map that visualizes where the runners came from
+* Productionionize the model by building a flask API endpoint that takes in a list of values and returns an estimated finishing time
 
 
 
